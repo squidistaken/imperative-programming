@@ -15,17 +15,3 @@ def get_area_of_triangle(b, h):
 def get_area_of_rectangle(b, h):
     area = b * h
     return area
-
-'''
-shape_input = str(input())
-base = float(input())
-height = float(input())
-
-match shape_input:
-    case "triangle":
-        print(get_area_of_triangle(base, height))
-    case "rectangle":
-        print(get_area_of_rectangle(base, height))
-    case other:
-        print("Shape not found.")
-'''
