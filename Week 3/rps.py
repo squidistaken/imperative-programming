@@ -1,5 +1,5 @@
 '''
-File: area.py
+File: rps.py
 Name: Marcus Persson (m.h.o.persson@student.rug.nl)
 
 Description:
