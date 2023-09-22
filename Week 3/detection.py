@@ -7,20 +7,20 @@ Description:
 '''
 
 # Coordinates of a rectangle
-x = int(input("x: "))
-y = int(input("y: "))
-w = int(input("w: "))
-z = int(input("z: "))
+x = int(input())
+y = int(input())
+w = int(input())
+z = int(input())
 
 # Coordinates of a point
-a = int(input("a: "))
-b = int(input("b: "))
+a = int(input())
+b = int(input())
 
 # Sorting min and max coordinates
 x_min, x_max = min(x, w), max(x, w)
 y_min, y_max = min(y, z), max(y, z)
 
-if ((a == x or a == w) or (b == y or b == z)) and ((x_min < a < x_max) or (y_min < b < y_max)):
+if ((a == x or a == w) or (b == y or b == z)) and ((x_min <= a <= x_max) or (y_min <= b <= y_max)):
     print("EDGE")
 elif (x_min < a < x_max) and (y_min < b < y_max):
     print("INSIDE")
