@@ -6,18 +6,23 @@ Description:
     This program is a basic hit detection for a rectangular object.
 '''
 
-# Represents a rectangle
-# x_1
-point_x = int(input())
-# y_2
-point_y = int(input())
-# x_2
-point_w = int(input())
-# y_2
-point_z = int(input())
+# Coordinates of a rectangle
+x = int(input("x: "))
+y = int(input("y: "))
+w = int(input("w: "))
+z = int(input("z: "))
 
 # Coordinates of a point
-point_a = int(input())
-point_b = int(input())
+a = int(input("a: "))
+b = int(input("b: "))
 
-# Output should be INSIDE, OUTSIDE, OR EDGE depending on the position of the points in relation to the rectangle
+# Sorting min and max coordinates
+x_min, x_max = min(x, w), max(x, w)
+y_min, y_max = min(y, z), max(y, z)
+
+if ((a == x or a == w) or (b == y or b == z)) and ((x_min < a < x_max) or (y_min < b < y_max)):
+    print("EDGE")
+elif (x_min < a < x_max) and (y_min < b < y_max):
+    print("INSIDE")
+else:
+    print("OUTSIDE")
