@@ -6,7 +6,7 @@ Description:
     This program is a simple form of encoding exercise.
 '''
 
-input = list(input())
+lst_input = list(input())
 
 '''
 Rules:
@@ -14,17 +14,11 @@ Rules:
 - Non-letter characters should not be encoded.
 '''
 
-'''
-ex. a = b (+1)
+index = 0
 
-b = d (+2)
-'''
+while index < len(lst_input):
+    # do stuff
 
-# TODO: THE ENCODING
+lst_output = ''.join(lst_input)
 
-# while input_length < len(input):
-    # input[input_length]
-
-output = ''.join(input)
-
-print(output)
+print(lst_output)
