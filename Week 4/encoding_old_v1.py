@@ -1,5 +1,5 @@
 """
-File: encoding_old.py
+File: encoding_old_v1.py
 Name: Marcus Persson (m.h.o.persson@student.rug.nl)
 
 Description:
