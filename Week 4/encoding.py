@@ -6,9 +6,6 @@ Description:
     This program is a simple form of an encoding exercise.
 """
 
-# 65-90 = A-Z
-# 97-122 = a-z
-
 lst_output = []
 index = 0
 

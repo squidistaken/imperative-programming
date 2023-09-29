@@ -11,16 +11,6 @@ alphabet_lowercase = list("abcdefghijklmnopqrstuvwxyz") * (len(lst_input) + 1)
 alphabet_uppercase = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ") * (len(lst_input) + 1)
 lst_output = []
 
-'''
-- work out where pos is
-- remove ord a
-- mod it by 26 (no overflow)
-- if >26, subtract by it! think smart not hard
-- add a back on
-
-ASCII solution ^^
-'''
-
 index = 0
 
 while index < len(lst_input):
