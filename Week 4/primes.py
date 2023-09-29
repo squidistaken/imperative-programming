@@ -1,29 +1,23 @@
 """
-File: name.py
+File: primes.py
 Name: Marcus Persson (m.h.o.persson@student.rug.nl)
 
 Description:
-    Description
+    This program checks for the closest prime number below x.
 """
 
 x = int(input())
-flag = False
-
 
 if x < 2:
     print("Invalid response; x must be greater than 2")
 else:
     x -= 1
-    while not flag:
-        print(x)
-        # TODO: Tweak the conditional!
-        if (x % 2 == 0) or (x % 3 == 0) or (x % 5 == 0) or (x % 31 == 0) or (x % 41 == 0) or (x % 109 == 0) or (x % 11 == 0) or (x % 53 == 0):
+    while x != 0:
+        if (x % 2 == 0) or (x % 3 == 0) or (x % 5 == 0):
             x -= 1
         else:
             print(x)
-            flag = True
             break
-
 
 """
 Input:  1234
