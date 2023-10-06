@@ -16,13 +16,13 @@ for character in list(input()):
         pos += index
         if pos >= 26:
             pos %= 26
-        pos += 97
+        pos += ord("a")
     elif character.isupper():
         pos = ord(character) - ord("A")
         pos += index
         if pos >= 26:
             pos %= 26
-        pos += 65
+        pos += ord("A")
     else:
         lst_output.append(character)
         continue

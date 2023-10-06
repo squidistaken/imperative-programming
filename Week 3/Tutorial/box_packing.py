@@ -10,8 +10,6 @@ box_length = float(input("Box length: "))
 box_width = float(input("Box width: "))
 box_height = float(input("Box height: "))
 
-# TODO: REDO WITHOUT MATH IMPORTED
-
 box_volume = box_length * box_width * box_height
 
 max_cubes = math.floor(box_volume / cube_volume)
