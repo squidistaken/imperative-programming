@@ -1,9 +1,10 @@
 """
-File: name.py
+File: missingno.py
 Name: Marcus Persson (m.h.o.persson@student.rug.nl)
 
 Description:
-    Description
+    This program outputs the length of the longest increasing subsequence possible when removing at most
+    one value in the original sequence.
 """
 
 lst = [int(_) for _ in input().split(" ")]
@@ -12,11 +13,11 @@ prev = 0
 count = 0
 maximum = 0
 
-for i in lst:
-    for n in (range(len(lst))):
+for i in range(len(lst)):
+    for n in lst:
         if n == i:
             continue
-        if prev < n:
+        elif prev < n:
             count += 1
         else:
             count = 0
@@ -47,7 +48,7 @@ for i in range len:
 		else:
 			cnt = 0
 		max = max(max, cnt)
-		prev = n;
+		prev = n;
 
 print(max)
 """
