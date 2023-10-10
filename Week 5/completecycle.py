@@ -9,6 +9,7 @@ Description:
 lst = [int(_) for _ in input().split(" ")]
 cycle = []
 
+# Index value
 i = 0
 
 for n in range(len(lst)):
