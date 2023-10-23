@@ -7,17 +7,23 @@ Description:
 """
 
 
-def create_table(_sentence, _column_order):
+def create_table(_sentence: str, _column_order: str = 1) -> list:
+    """
+    Creates a 2D array of a sentence, based on the length of a column.
+    :param _sentence: Sentence.
+    :param _column_order: Column order.
+    :return: 2D array of a sentence, based on the length of a column.
+    """
     _column_length = len(_column_order)
     _lst = []
 
-    for i in range(0, len(_sentence), _column_length):
+    for _i in range(0, len(_sentence), _column_length):
         _row = []
         _column_cnt = 0
-        for j in range(_column_length):
-            if i + j < len(_sentence):
+        for _j in range(_column_length):
+            if _i + _j < len(_sentence):
                 _column_cnt += 1
-                _row.append(_sentence[i + j])
+                _row.append(_sentence[_i + _j])
         # In the event there are incomplete rows we're just appending with an empty string.
         while _column_cnt < _column_length:
             _row.append('')
