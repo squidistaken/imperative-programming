@@ -1,93 +1,41 @@
-maze = []
-count = 0
-max_count = 0
-visited_points = []
+# A naive recursive implementation
+# of 0-1 Knapsack Problem
 
-# Input consists of an unknown number of lines, ending with an empty line.
-while True:
-    maze_points = input()
+# Returns the maximum value that
+# can be put in a knapsack of
+# capacity W
 
-    if maze_points == "":
-        break
+
+def find_optimal_satisfactions(_v, _weights, _satisfactions, _n):
+    # Base Case
+    if _n == 0 or _v == 0:
+        return 0
+
+    # If weight of the nth item is
+    # more than Knapsack of capacity W,
+    # then this item cannot be included
+    # in the optimal solution
+    if _weights[_n - 1] > _v:
+        return find_optimal_satisfactions(_v, _weights, _satisfactions, _n - 1)
+
+    # return the maximum of two cases:
+    # (1) nth item included
+    # (2) not included
     else:
-        maze.append(list(list(maze_points)))
+        return max(_satisfactions[_n - 1] +
+                   find_optimal_satisfactions(_v - _weights[_n - 1], _weights, _satisfactions, _n - 1),
+                   find_optimal_satisfactions(_v, _weights, _satisfactions, _n - 1))
 
 
-# Defining where our start position "@" is.
-def get_start_pos(_maze: list) -> tuple:
-    start_pos = ()
-
-    for _y in range(len(_maze)):
-        row = _maze[_y]
-        for _x in range(len(row)):
-            if _maze[_y][_x] == "@":
-                start_pos = (_y, _x)
-
-    return start_pos
+# end of function knapSack
 
 
-# Defining where all possible moves to "." are.
-def get_moves(_maze: list) -> list[tuple]:
-    _moves = []
+# Driver Code
+if __name__ == '__main__':
+    profit = [10, 100, 95]
+    weight = [50, 51, 50]
+    W = 100
+    n = len(profit)
+    print(find_optimal_satisfactions(W, weight, profit, n))
 
-    for _y in range(len(_maze)):
-        row = _maze[_y]
-        for _x in range(len(row)):
-            if _maze[_y][_x] == ".":
-                _moves.append((_y, _x))
-
-    return _moves
-
-
-y, x = get_start_pos(maze)
-moves = get_moves(maze)
-
-
-def count_moves(_maze: list, _y: int, _x: int):
-    global count
-    global max_count
-
-    if _maze[_y][_x] == ".":
-        count += 1
-    else:
-        max_count = max(count, max_count)
-        count = 0
-
-
-def get_allowed_moves(_maze: list, _y: int, _x: int, _visited_points: list[tuple]) -> list[tuple]:
-    global moves
-    _possible_moves = []
-
-    for direction in [(_y + 1, _x), (_y - 1, _x), (_y, _x + 1), (_y, _x - 1)]:
-        if (direction[0], direction[1]) in moves and (direction[0], direction[1]) not in _visited_points:
-            _possible_moves.append((direction[0], direction[1]))
-
-    return _possible_moves
-
-
-def move(_maze: list, _y: int, _x: int, _visited_points: list[tuple]):
-    global count
-    global max_count
-
-    count_moves(_maze, _y, _x)
-
-    max_count = max(count, max_count)
-
-    _visited_points.append((_y, _x))
-    _possible_moves = get_allowed_moves(_maze, _y, _x, _visited_points)
-    store_count = count
-
-    if len(_possible_moves) > 1:
-        for i in range(len(_possible_moves)):
-            count = store_count
-            _y, _x = _possible_moves[i]
-            move(_maze, _y, _x, [_[:] for _ in _visited_points])
-    elif len(_possible_moves) != 0:
-        _y, _x = _possible_moves[0]
-        move(_maze, _y, _x, _visited_points)
-
-
-move(maze, y, x, visited_points)
-max_count = max(count, max_count)
-
-print(max_count)
+# This code is contributed by Nikhil Kumar Singh
