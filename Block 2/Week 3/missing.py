@@ -7,9 +7,24 @@ Description:
 """
 
 
-# TODO: Optimise
+# "Replicating" binary search
 def find_missing(sequence: list[int]) -> tuple[int, int]:
-    step = (sequence[-1] - sequence[0]) // len(sequence)
-    for i in enumerate(range(sequence[0], sequence[-1], step)):
-        if i[1] not in sequence:
-            return i[0], i[1]
+    diff = (sequence[-1] - sequence[0]) // len(sequence)
+    low = 0
+    high = len(sequence) - 1
+    # Allow for constant iteration
+    while low < high:
+        # Midpoint position
+        mid = low + (high - low) // 2
+        # If the arithmetic progression is not actually equal to the real arithmetic progression, we can return
+        if sequence[mid + 1] - sequence[mid] != diff:
+            return mid + 1, sequence[mid] + diff
+        # Same condition, but assuming the midpoint is different.
+        if mid > 0 and sequence[mid] - sequence[mid - 1] != diff:
+            return mid, sequence[mid - 1] + diff
+        # If all elements are in the left, then the certain element is on the right side
+        if sequence[mid] == sequence[0] + mid * diff:
+            low = mid + 1
+        # Otherwise the element is on the left side
+        else:
+            high = mid - 1
