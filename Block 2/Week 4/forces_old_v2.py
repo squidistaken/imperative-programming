@@ -26,12 +26,12 @@ def get_position(sequence: list[int], n: int) -> int:
     for i in range(len(sequence)):
         if n > sequence[i]:
             pos += 1
-
     return pos
 
 
 def merge_sorted(sequence: list[list[int]]) -> list[int]:
-    new_sequence = []
+    new_sequence = max(sequence, key=len)
+    sequence.pop(sequence.index(max(sequence, key=len)))
 
     for i in range(len(sequence)):
         for j in range(len(sequence[i])):
