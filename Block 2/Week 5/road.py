@@ -8,12 +8,11 @@ Description:
 
 # The input is a line with the number of villages N
 N = int(input())
-#
-n = 0
 
 # The input are the (positive and integer) lengths of the direct roads between villages, so the i-th number on
 # j-th line represents the length of the direct road between villages i and j.
 grid = []
+n = 0
 while n < N:
     grid.append([int(_) for _ in input().split(" ")])
     n += 1
